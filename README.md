@@ -5,4 +5,6 @@ Welcome to my personal projects repository! <a href=https://github.com/moujahent
 
 2️⃣️ Lottery Draw GUI ➖ <a href=https://github.com/moujahentin/personalProjects/tree/main/klirosi target="_blank">Click here</a>
 
+3️⃣ Vision Helper Bot v2 (Vision Automation) ➖ <a href="https://github.com/moujahentin/personalProjects/tree/main/visionBot" target="_blank">Click here</a>
+
 🚧 More Coming Soon
