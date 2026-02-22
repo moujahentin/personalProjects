@@ -1,0 +1,269 @@
+{
+  "name": "bot_project",
+  "global_poll_ms": 350,
+  "global_screenshot_mode": "mss",
+  "last_run_by_workflow": {
+    "wf_1770289787069": "2026-02-05"
+  },
+  "templates": [
+    {
+      "id": "tmpl_1770289890827",
+      "name": "hands",
+      "file": "hands.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    },
+    {
+      "id": "tmpl_1770289897780",
+      "name": "allyhelp",
+      "file": "allyhelp.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    },
+    {
+      "id": "tmpl_1770289900874",
+      "name": "exp",
+      "file": "exp.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    },
+    {
+      "id": "tmpl_1770289903671",
+      "name": "heal",
+      "file": "heal.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    },
+    {
+      "id": "tmpl_1770289906280",
+      "name": "healed",
+      "file": "healed.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    },
+    {
+      "id": "tmpl_1770289909019",
+      "name": "wounded",
+      "file": "wounded.png",
+      "threshold": 0.85,
+      "scale_min": 1.0,
+      "scale_max": 1.0,
+      "scale_step": 0.05,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "offset_dx": 0,
+      "offset_dy": 0
+    }
+  ],
+  "workflows": [
+    {
+      "id": "wf_1770289787069",
+      "name": "Daily Job",
+      "enabled": true,
+      "schedule_enabled": true,
+      "daily_time": "09:00",
+      "max_duration_s": 1800,
+      "steps": [
+        {
+          "id": "act_1770289787069",
+          "enabled": true,
+          "type": "click_template",
+          "params": {
+            "template_id": "",
+            "click": "left",
+            "clicks": 1,
+            "interval": 0.0,
+            "post_delay": 0.2
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        }
+      ],
+      "recovery_steps": []
+    }
+  ],
+  "watchers": [
+    {
+      "id": "watch_1770289927161",
+      "name": "help",
+      "enabled": true,
+      "template_id": "tmpl_1770289890827",
+      "popup_type": "non_blocking",
+      "cooldown_s": 10.0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "handler_steps": [],
+      "max_attempts": 0
+    },
+    {
+      "id": "watch_1770289991904",
+      "name": "CollectRSS",
+      "enabled": true,
+      "template_id": "tmpl_1770289900874",
+      "popup_type": "non_blocking",
+      "cooldown_s": 500.0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "handler_steps": [],
+      "max_attempts": 0
+    },
+    {
+      "id": "watch_1770290008367",
+      "name": "HealSequence",
+      "enabled": false,
+      "template_id": "tmpl_1770289909019",
+      "popup_type": "non_blocking",
+      "cooldown_s": 10.0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "handler_steps": [
+        {
+          "id": "act_1770290138606",
+          "enabled": true,
+          "type": "wait_template",
+          "params": {
+            "template_id": "tmpl_1770289903671"
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        },
+        {
+          "id": "act_1770290167221",
+          "enabled": true,
+          "type": "click_template",
+          "params": {
+            "template_id": "tmpl_1770289903671",
+            "click": "left",
+            "clicks": 1,
+            "interval": 0.0,
+            "post_delay": 0.2
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        },
+        {
+          "id": "act_1770290196517",
+          "enabled": true,
+          "type": "wait_template",
+          "params": {
+            "template_id": "tmpl_1770289897780"
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        },
+        {
+          "id": "act_1770290222540",
+          "enabled": true,
+          "type": "click_template",
+          "params": {
+            "template_id": "tmpl_1770289897780",
+            "click": "left",
+            "clicks": 1,
+            "interval": 0.0,
+            "post_delay": 0.2
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        },
+        {
+          "id": "act_1770290272491",
+          "enabled": true,
+          "type": "wait_template",
+          "params": {
+            "template_id": "tmpl_1770289906280"
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        },
+        {
+          "id": "act_1770290297355",
+          "enabled": true,
+          "type": "click_template",
+          "params": {
+            "template_id": "tmpl_1770289906280",
+            "click": "left",
+            "clicks": 1,
+            "interval": 0.0,
+            "post_delay": 0.2
+          },
+          "on_fail": "stop",
+          "timeout_s": 10.0,
+          "max_retries": 2
+        }
+      ],
+      "max_attempts": 0
+    }
+  ]
+}
