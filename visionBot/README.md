@@ -23,6 +23,7 @@ Developed as a technical experiment to explore computer vision–based UI automa
 py -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+```
 
 ## Run
 ```bash
