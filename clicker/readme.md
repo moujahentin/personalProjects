@@ -1,10 +1,19 @@
-🖱️ Auto Clicker
+## 🖱️ Auto Clicker (Python)
 
-A simple Python auto clicker I made for myself. Clicks automatically at a set position or the current mouse location, with a customizable interval. Perfect for small automation experiments or just playing around.
+A small Python automation tool that simulates mouse clicks at a fixed position or at the current cursor location, with a configurable interval.
 
-Run with:
+**Why I built it**  
+I created this tool to automate repetitive UI interactions during long online training sessions and personal workflows, reducing unnecessary manual input.
 
+**Tech**
+- Python
+- Mouse/keyboard input automation
+
+**Features**
+- Click at a fixed position or current cursor location  
+- Configurable click interval  
+- Simple CLI usage
+
+**Run**
+```bash
 python clicker.py
-
-
-Made for fun and personal use. 🛠️
